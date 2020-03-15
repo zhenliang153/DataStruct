@@ -29,6 +29,13 @@ public:
 		createHeap();
 	}
 	~Heap(){}
+	
+	void operator=(const vector<T>& element_vec) {
+		for(const T& element: element_vec) {
+			_element_vec.emplace_back(element);
+		}
+		createHeap();
+	}
 
 	//堆排序，从大到小
 	void sort() {
@@ -133,5 +140,7 @@ int main(void) {
 	cout << my_heap.size() << endl;
 	my_heap.sort();
 	cout << my_heap.empty() << endl;
+	my_heap = element_vec;
+	cout << my_heap.size() << endl;
 	return 0;
 }
